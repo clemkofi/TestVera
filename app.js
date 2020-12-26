@@ -32,7 +32,7 @@ app.post("/TestVera", async function (req, res) {
   
   });
 
-// port for the server to listen on
+// port for the server to listen on 3000 or port from heroku
 const port = app.listen(process.env.PORT || 3000);
 
 app.listen(port, () => {
