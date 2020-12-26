@@ -4,6 +4,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => res.send("Welcome to Test Vera!"));
 
+// get request to be used by plugin
 app.get("/TestVera", function (req, res) {
 
   const testData = {
