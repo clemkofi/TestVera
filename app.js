@@ -26,6 +26,8 @@ app.post("/TestVera", async function (req, res) {
   
     console.log("TestData : ", testData);
 
+    console.log("request body : ", req.body);
+
     res.send("Request Succesful!");
   
   });
