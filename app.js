@@ -17,6 +17,19 @@ app.get("/TestVera", function (req, res) {
 
 });
 
+// post request to use on the vera box
+app.post("/TestVera", async function (req, res) {
+    const testData = {
+      content_1: req.body.Content,
+      content_2: req.body.Content
+    };
+  
+    console.log("TestData : ", testData);
+
+    res.send("Request Succesful!");
+  
+  });
+
 // port for the server to listen on
 const port = app.listen(process.env.PORT || 3000);
 
