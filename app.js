@@ -20,8 +20,8 @@ app.get("/TestVera", function (req, res) {
 // post request to use on the vera box
 app.post("/TestVera", async function (req, res) {
     const testData = {
-      content_1: req.body.Content,
-      content_2: req.body.Content
+      content_1: req.body.Content_1,
+      content_2: req.body.Content_2,
     };
   
     console.log("TestData : ", testData);
