@@ -1,0 +1,33 @@
+request_body :  {
+       HeizenEin: 1,
+       AlarmdisplayAus: 1,
+       rooms: [
+         [ room_location, Solltemperatur, Isttemperatur, Heizleistung ],
+       ],
+       Serial_No: '45113480',
+       Box_Name: 'Voelkendorferstrasse90OST',
+       Unixtimestamp: 1609080893,
+       Temperatursensors: [
+         [ sensor_location, Isttemperatur ],
+       ],
+       DoorWindowsensors: [
+         [ sensor_location, offen, date, time ],
+       ],
+       Motionsensors: [
+         [ Sensor_name, Date, time ],
+       ],
+       avTemp: -3.0962046827795,
+       Humiditisensors: [ 
+           [ humidity_sensor_location, Luftfeuchtigkeit ] 
+        ],
+       LastActiviti: 99999999999,
+       WarmWetterEin: 0,
+       Switches: [
+         [ switch_location, Ein, Tageseinschaltzeit ],
+       ],
+       Temp: -3,
+       KuehlenEin: 0,
+       Lichtsensors: [
+         [ light_location, light_level ],
+       ]
+     }
