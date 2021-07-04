@@ -67,8 +67,7 @@ app.get("/TestVera", function (req, res) {
 app.use(authentication);
 
 // this is the part of the app that does all auth for the user 
-// there was a mistake here just make sure to check it next time 
-// it wont be bad to write a unit test for the authenticate function you know 
+// test for authentication function written now 
 
 // post request to use on the vera box
 app.post("/TestVera", async function (req, res) {
