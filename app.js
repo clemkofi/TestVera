@@ -29,15 +29,15 @@ function authentication(req, res, next) {
   var user = auth[0];
   var pass = auth[1];
 
-  if (user == '45113480' && pass == 'klugheim2020!') {
-
-      // If Authorized user
-      next();
+  if (user == "45113480" && pass == "klugheim2020!") {
+    // If Authorized user
+    next();
+    return true;
   } else {
-      var err = new Error('You are not authenticated!');
-      res.setHeader('WWW-Authenticate', 'Basic');
-      err.status = 401;
-      return next(err);
+    var err = new Error("You are not authenticated!");
+    res.setHeader("WWW-Authenticate", "Basic");
+    err.status = 401;
+    return next(err);
   }
 
 }
@@ -65,6 +65,10 @@ app.get("/TestVera", function (req, res) {
 
 // check the authorization here before the initiation of any post request
 app.use(authentication);
+
+// this is the part of the app that does all auth for the user 
+// there was a mistake here just make sure to check it next time 
+// it wont be bad to write a unit test for the authenticate function you know 
 
 // post request to use on the vera box
 app.post("/TestVera", async function (req, res) {
@@ -174,3 +178,10 @@ const port = app.listen(process.env.PORT || 3000);
 app.listen(port, () => {
   console.log("My REST API running");
 });
+
+
+// exports to be used for testing purposes
+module.exports = {
+  app,
+  authentication
+};
