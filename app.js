@@ -11,6 +11,37 @@ admin.initializeApp({
   databaseURL: "https://klugheimmobile-baaa5.firebaseio.com",
 });
 
+
+// function to get authentication details of the box
+function authentication(req, res, next) {
+  var authheader = req.headers.authorization;
+  console.log(req.headers);
+
+  if (!authheader) {
+      var err = new Error('You are not authenticated!');
+      res.setHeader('WWW-Authenticate', 'Basic');
+      err.status = 401;
+      return next(err)
+  }
+
+  var auth = new Buffer.from(authheader.split(' ')[1],
+  'base64').toString().split(':');
+  var user = auth[0];
+  var pass = auth[1];
+
+  if (user == '45113480' && pass == 'klugheim2020!') {
+
+      // If Authorized user
+      next();
+  } else {
+      var err = new Error('You are not authenticated!');
+      res.setHeader('WWW-Authenticate', 'Basic');
+      err.status = 401;
+      return next(err);
+  }
+
+}
+
 // initialize cloud firestore
 const firestore = admin.firestore();
 
@@ -28,6 +59,12 @@ app.get("/TestVera", function (req, res) {
 
   res.send("Request Succesful!");
 });
+
+///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+// check the authorization here before the initiation of any post request
+app.use(authentication);
 
 // post request to use on the vera box
 app.post("/TestVera", async function (req, res) {
@@ -115,7 +152,7 @@ app.post("/TestVera", async function (req, res) {
     .doc(req.body.Unixtimestamp.toString())
     .set(request_data)
     .then((res) => {
-      console.log("Data input successful!");
+      console.log("Database input successful!");
       firebase_request_ok = 1;
     })
     .catch((error) => {
