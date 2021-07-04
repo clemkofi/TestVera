@@ -131,8 +131,8 @@ app.post("/TestVera", async function (req, res) {
     var switches_str = "switch";
     switches_str = switches_str.concat(i);
     return {
-      [switches_str]: [...val] 
-    }
+      [switches_str]: [...val],
+    };
   });
 
   // reformat the data for the light sensors

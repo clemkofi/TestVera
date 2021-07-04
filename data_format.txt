@@ -23,7 +23,7 @@ request_body :  {
        LastActiviti: 99999999999,
        WarmWetterEin: 0,
        Switches: [
-         [ switch_location, Ein, Tageseinschaltzeit ],
+         [ switch_location, Ein, Tageseinschaltzeit, ActualRunnningTime ],
        ],
        Temp: -3,
        KuehlenEin: 0,
